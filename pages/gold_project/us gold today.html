@@ -1,0 +1,84 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/stylegoldmine.css">
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css"/>
+    <!-- include cartodb.js library -->
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+</head>
+<body>
+<br>
+ <h1>Gold mining in the US today</h1>
+  <p>The closure of gold mines during World War II by the War Production Board Limitation Order No. 208 in autumn 1942 had a major impact on the plummeting of gold production until the end of the war.
+  <p>During the 1980s, there was a resurgence in US gold production due to its increasing value and the use of heap leaching to recover gold from disseminated low-grade deposits in Nevada and other states.</p>
+  <p>In 2015 the United States produced 200 tonnes of gold, 6.7% of world production. Most gold produced today in the US comes from large open-pit heap leach mines in the state of Nevada. </p>
+  <p>Map of operational and closed gold mines in the US:</p>
+  <br>
+ <div id='map'></div>
+  <div id='selector_menu'>
+    <select id='selector'>
+      <option value='reset'>Mines 1799-today</option>
+      <option value='layer1'>Operational mines</option>
+      <option value = 'layer2'>Ghost mines</option>
+    </select>
+
+  </div>  
+  <script>
+    
+    function init(){
+
+      var sublayer;
+      // create leaflet map and define some properties
+        var map = L.map('map', { 
+          zoomControl: false,
+          center: [49.964945, -101.960330],
+          zoom: 3
+        })
+
+        // add a base layer to map
+        L.tileLayer('https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png', {
+        }).addTo(map);
+
+      var layerUrl = 'https://savi.carto.com/u/orifisher/api/v2/viz/be3d4ff4-a744-11e6-afaf-0ecd1babdde5/viz.json' ;
+      cartodb.createLayer(map,layerUrl)
+        .addTo(map)
+        .on('done', function(layer){
+          sublayer = layer.getSubLayer(0);
+
+          var LayerActions = {
+            reset: function(){
+              sublayer.setSQL("SELECT * FROM gold_mines");
+              sublayer.setCartoCSS("#gold_mines {marker-fill: #FFB927; marker-width: 7;marker-fill-opacity: 0.9;marker-line-color: #FFB927;marker-line-width: 1;marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;marker-allow-overlap: true;}");
+            },
+            layer1: function(){
+              sublayer.setSQL("SELECT * FROM gold_mines WHERE closed = '2016-01-01T00:00:00Z'");
+              sublayer.setCartoCSS("#gold_mines {marker-fill: #FFB927; marker-width: 7;marker-fill-opacity: 0.9;marker-line-color: #333;marker-line-width: 1;marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;marker-allow-overlap: true;}");
+              return true;
+            },
+            layer2: function(){
+              
+              sublayer.setSQL("SELECT * FROM gold_mines WHERE closed < '2016-01-01T00:00:00Z'");
+              sublayer.setCartoCSS("#gold_mines {marker-fill: #333; marker-width: 7;marker-fill-opacity: 0.9;marker-line-color: #FFB927;marker-line-width: 1;marker-line-opacity: 1;marker-placement: point;marker-type: ellipse;marker-allow-overlap: true;}");
+              return true;
+            }
+          }
+
+        $('#selector').change(function() {
+           LayerActions[$(this).val()]();
+        }); 
+
+        });
+    }
+
+
+    window.onload = init;
+
+  </script>
+<br><br>
+<h4>US annual gold production, 1840-2012:</h4>
+<img class="graph" src="img/ustoday.jpg" width="500" height="341">
+<br>
+ <p>Source: <a href="https://en.wikipedia.org/wiki/Gold" target="_blank">Wikipedia</a></p>
+ <p><a href="gold website.html">Back to main page</a></p>
+
+ </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Switchbase</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    
+    <link rel="shortcut icon" href="https://cartodb.com/assets/favicon.ico" />
+    <link rel="stylesheet" href="css/stylebase.css">
+
+ 
+
+    <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css"/>
+  </head>
+  <body>
+
+   <h1>Gold</h1>
+  
+
+  <p>Also known as Au or atomic number 79, Gold occurs often in free elemental form, as nuggets or grains in rocks and veins. </p>
+
+  <p> Gold is a precious metal used for coinage, jewelry, and other arts throughout recorded history. In the past, gold was also used as currency, however gold coins ceased to be minted in the 1930s, and the world gold standard was abandoned after 1976. The historical value of gold was rooted in its relative rarity, easy handling and minting, easy melting and fabrication, resistance to corrosion, and distinctive color.</p>
+
+  <h2>Production</h2>
+  <p>At the end of 2014 there were 183,600 tonnes of gold in existence above ground, with a value of $6.3 trillion. This can be represented by a cube with an edge length of about 21 meters.</p>
+  
+  <p>A simulation of the size of all the gold ever produced:</p>
+
+  <img class="plain" src="img/goldproduction.jpg" alt="area">
+
+  <br>
+  <h2>Mining</h2>
+  <p>Historically, South Africa has been the source for a large proportion of the world's gold supply, with about 50% of the production. In 2007 China overtook South Africa as the world's largest gold producer. As of 2013, China is followed in order by Australia, the United States, Russia, Peru and South Africa.</p>
+  
+  <h2>Reserves by location</h2>
+  <p>Regional locations and general geologic settings of known deposits of gold or gold alloys:</p>
+  <br>
+    <div id="map">
+
+    <button type="button" id="button-basemap1" onclick="setBasemap1();"> Basemap 1</button>
+
+    <button type="button" id="button-basemap2" onclick="setBasemap2();"> Basemap 2</button>
+
+
+    <!-- include cartodb.js library -->
+    <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+
+    <script>
+        var basemap;
+
+       function setBasemap1(){
+          basemap._url="https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}.png";
+          basemap.redraw();
+        }
+
+        function setBasemap2(){
+          basemap._url="https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png";
+          basemap.redraw();
+
+        }
+      function main() {
+
+        cartodb.createVis('map', 'https://savi.carto.com/u/orifisher/api/v2/viz/7053ec6a-a6ec-11e6-b27f-0e3a376473ab/viz.json')
+        .done(function(vis, layers) {
+  
+         basemap = layers[0];
+
+      
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+      window.onload = main;
+    </script>
+    </div>
+
+<br><br><br>
+ <p>Source: <a href="https://en.wikipedia.org/wiki/Gold" target="_blank">Wikipedia</a> <a href="http://minerals.usgs.gov/minerals/pubs/commodity/gold/" target="_blank">USGS minerals GIS database</a></p>
+ <p><a href="gold website.html">Back to main page</a></p>
+
+  </body>
+</html>
+
+
+

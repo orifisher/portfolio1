@@ -1,0 +1,32 @@
+body {
+	width: 75%;
+	background-color: #f4f4f4;
+	font-family: sans-serif;
+	margin: auto; 
+	
+}
+
+.plain {
+	height: 330px;
+	width: 70%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#map {
+	width: 90%;
+    height: 470px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+h1, h2, h3, h4, p {
+	color: #14393d;
+}
+
+p {
+	font-size: 17px;
+    line-height: 21px;
+}

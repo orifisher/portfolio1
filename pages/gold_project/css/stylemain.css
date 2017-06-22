@@ -1,0 +1,185 @@
+
+/* if its just part of body, then use
+.wrap and not body */
+
+body {
+	width: 1200px;
+	background-color: #fff;
+	margin: 20px auto;
+	font-family: sans-serif;
+
+}
+
+h1, h3, h5, .bodytext {
+	margin-left: 5px;
+}
+
+h2 {
+	font-size: 30px;
+	line-height: 35px;
+	letter-spacing: -1px;
+	margin-left: 5px;
+}
+
+/* this part is style2 */
+
+.wrap {
+    min-width: 600px;
+    width: 90%;
+    margin: auto;
+    background: #e8e8e8;
+    overflow: hidden;
+}
+
+.content {
+	background: #f4f4f4;
+	float: left;
+	width: 83%;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: #e8e8e8;
+
+}
+
+.icon {
+	width: 80px;
+	height: 70px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: -21px;
+}
+
+.pratt {
+	width: 100%;
+	height: 13%;
+	margin-left: 0px;
+	margin-right: 0px;
+    border: solid;
+    border-color: #e8e8e8;
+}
+
+aside {
+	background: #f4f4f4;
+    float: left;
+    width: 16.7%;
+    height: 3366px;
+    border-left: solid;
+    border-color: #e8e8e8;
+
+
+}
+
+.content {
+	height: 370px;
+}
+
+
+aside ul {
+	list-style: none;
+}
+
+/* up till here is part style2 */
+
+
+.meta, .post_info, .post_info a {
+	color: #999;
+}
+
+h1, h2 {
+	color: #14393d;
+}
+
+a {
+	color: #276056;
+	font-size: 14px;
+}
+
+a:hover {
+	color: black;
+}
+
+p, .bodytext {
+    font-size: 17px;
+    line-height: 21px;
+}
+
+article img {
+	float: left;
+	margin-right: 30px;
+}
+
+article h2 {margin:  0; }
+
+article .continue {
+    float: right;
+}
+
+.continue:after {
+	content: ')'
+}
+
+.continue:before {
+	content: '('
+}
+
+.meta {
+	padding-left: 0;
+	margin: 0 0 8px;
+}
+
+.meta a, post_info {
+	font-style: italic;
+}
+
+
+.meta li:after {
+	content: '\\';
+	padding: 0 2px;
+}
+
+.meta li:last-child:after {
+	content: none;
+}
+
+.meta li {
+	display: inline;
+}
+
+.preview {
+	float: right;
+	margin-right: 12px;
+	margin-top: 7px;
+	width: 75%;
+}
+
+
+.post_info {
+    background: #f3f3f3; 
+	padding: 3px;
+	float: left;
+
+}
+
+
+.post_info a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+.body {
+	clear: both;
+	color: #575757
+}
+
+footer {
+	text-align: center;
+}
+
+
+.linktitle a {
+	text-decoration: none;
+}
+
+.linktitle a:hover {
+	text-decoration: underline;
+}

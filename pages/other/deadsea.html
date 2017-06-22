@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.30.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.30.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/deadstyle.css">
+
+</head>
+<body>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
+
+<h1>The Disappearance of the Dead Sea?</h1>
+<p>The Dead Sea is a salt lake bordered by Jordan to the east and Israel and Palestine to the west. Its surface and shores are 430.5 meters (1,412 ft.) below sea level, Earth's lowest elevation on land. The Dead Sea is 304 m (997 ft.) deep, the deepest hypersaline lake in the world. With 34.2% salinity it is 9.6 times as salty as the ocean, and one of the world's saltiest bodies of water. This makes for a harsh environment in which plants and animals cannot flourish, hence its name. The Dead Sea is 50 kilometers (31 mi) long and 15 kilometers (9 mi) wide at its widest point. It lies in the Jordan Rift Valley and its main tributary is the Jordan River. Since the mid-20th century the Dead Sea has been shrinking at an alarming rate, dropping 3-5 ft. a year. This is partly due to industrial endeavors, specifically by Israel Chemicals Ltd and Jordan's Arab Potash Co. The salty Dead Sea's waters are perfect for manufacturing potash, a basic ingredient in fertilizer. As the chemical companies pump out the salty, profitable water for potash, the local agricultural industry diverts water from the Jordan River that feeds the Dead Sea to their fields of crops. (source: Wikipedia)
+</p>
+<h4>Left side of map: NASA satellite image - end of summer 1973
+<br>Right side of map: NASA satellite image - end of summer 2016
+<br>click and move the circle in order to notice the change
+</h4>
+
+<div id='before' class='map'></div>
+<div id='after' class='map'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoib3JpZmlzaGVyIiwiYSI6ImNpdGdlMnF4bDAwaTcyb21ramllN3Fob3oifQ.ZFKAmdNI1Zp2Hh2edrlTSA';
+var beforeMap = new mapboxgl.Map({
+    container: 'before',
+    style: 'mapbox://styles/orifisher/cixqr2l21003j2soju6apkynw',
+    center: [35.473759, 31.380302],
+    zoom: 8.8
+});
+
+var afterMap = new mapboxgl.Map({
+    container: 'after',
+    style: 'mapbox://styles/orifisher/cixqqyqi3003v2so9eepb2sky',
+    center: [35.473759, 31.380302],
+    zoom: 8.8
+});
+
+var map = new mapboxgl.Compare(beforeMap, afterMap, {
+    // Set this to enable comparing two maps by mouse movement:
+    // mousemove: true
+});
+
+</script>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+Source: NASA satellite image, created with Mapbox
+<br>
+
+
+
+</body>
+</html>

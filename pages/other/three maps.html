@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!--Edit the title of the page-->
+  <title>NYC Industry 1922 & Today</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+        <![endif]-->
+<style>
+body{font-family: Helvetica, Arial; font-weight: regular; font-size: 15px; color: #000; background-color: #d4fbff}
+
+.map{background-color:#fff;height: 600px; margin: 10px 0 25px 0;}
+
+.row {width: 96%; margin: 0 auto; text-align: center;}
+.row:before, .row:after {content: " "; display: table;}
+.row:after {clear: both;}
+.row .row {width: 100%;}
+
+.col {display: inline; float: left; margin: 0 1%; position: relative;}
+.col .col {margin: 0 2%;}
+.col .col:first-child {margin-left: 0;}
+.col .col:last-child {margin-right: 0;}
+
+.span1 {width: 4.25%;}
+.span2 {width: 10.5%;}
+.span3 {width: 16.75%;}
+.span4 {width: 23%;}
+.span5 {width: 30.5%;}
+.span6 {width: 35.5%;}
+.span7 {width: 41.75%;}
+.span8 {width: 48%;}
+.span9 {width: 54.25%;}
+.span10 {width: 60.5%;}
+.span11 {width: 66.75%;}
+.span12 {width: 73%;}
+.span13 {width: 79.25%;}
+.span14 {width: 85.5%;}
+.span15 {width: 91.75%;}
+.span16 {width: 98%;}
+
+
+</style>
+      </head>
+      <body>
+        <h1> Shifting Utilizations of Urban Structures, NYC 1922 vs. 2016  </h1>
+        <p> The following maps demonstrate the shifting utilizations of NYC urban structures. The left-hand map shows NYC industrial areas circa 1922, encompassing industries such as textile, leather tanning, food and chemical industries, metal-works etc. The central map shows the current use of the same buildings, as residential, commercial, industrial and more. The right-hand map combines data from both aforementioned maps. It foregrounds the fact that areas which previously housed industries often involving hazardous materials, such as metal-works, chemical and lead-based paint industries, are now heavily populated, serving commercial and residential functions.  </p>
+        <p> </p>
+        <p> If you wish to change the area on view, click on any of the maps, and while holding down your left-hand mouse button, drag the marker towards your area of interest. The zoom can be changed via the +\- symbols on the left-hand map. Clicking on the color-coded areas of the map will open a window detailing the various structures' current use. To access any of the maps' legends, click on the "legends" link. [If the map halts, simply click "refresh"].</p>
+        <p> </p>
+
+
+            <a href="combined3.jpg" target="_blank" onclick="window.open('img/combined3.jpg', 'popup', 'height=220, width=800'); return false;"><strong>Legends</strong></a>
+
+        <p> </p>
+
+        
+
+        <div class="row">
+          <div class="col span5 map" id="map1"></div>
+          <div class="col span5 map" id="map2"></div>
+          <div class="col span5 map" id="map3"></div>
+
+        </div>
+
+        <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+
+
+
+        <script type="text/javascript">
+          var map1 = L.map('map1', { 
+            zoomControl: true,
+            center: [40.739683, -73.960460],
+            zoom: 12
+          });
+          var map2 = L.map('map2', { 
+            zoomControl: false,
+            center: [40.739683, -73.960460],
+            zoom: 12
+          });
+          var map3 = L.map('map3', { 
+            zoomControl: false,
+            center: [40.739683, -73.960460],
+            zoom: 12
+          });
+
+        // add a nice baselayer from Stamen 
+        var layer = L.tileLayer('https://api.mapbox.com/styles/v1/orifisher/citge3ypt000g2imje75e29y8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib3JpZmlzaGVyIiwiYSI6ImNpdGdlMnF4bDAwaTcyb21ramllN3Fob3oifQ.ZFKAmdNI1Zp2Hh2edrlTSA',{
+          attribution: '&copy; <a href="https://www.mapbox.com/">Mapbox</a> contributors, &copy; <a href="http://www.slate.com/blogs/the_vault.html">The Vault blog</a>'
+        }).addTo(map1);
+
+        var layer = L.tileLayer('https://api.mapbox.com/styles/v1/orifisher/cizxllgur002m2sob3fi9arvp/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib3JpZmlzaGVyIiwiYSI6ImNpdGdlMnF4bDAwaTcyb21ramllN3Fob3oifQ.ZFKAmdNI1Zp2Hh2edrlTSA',{
+          attribution: '&copy; <a href="http://www.openstreetmap.org/#map=5/51.500/-0.100">OpenStreetMap</a> contributors, &copy; <a href="https://www.mapbox.com/">mapbox</a>'
+        }).addTo(map2);
+        
+        cartodb.createLayer(map2, 'https://savi.carto.com/u/orifisher/api/v2/viz/3cbb69ac-7f7b-11e6-b972-0e3ebc282e83/viz.json', { legends: false })
+         .addTo(map2)
+
+        var layer = L.tileLayer('https://api.mapbox.com/styles/v1/orifisher/cizxllgur002m2sob3fi9arvp/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib3JpZmlzaGVyIiwiYSI6ImNpdGdlMnF4bDAwaTcyb21ramllN3Fob3oifQ.ZFKAmdNI1Zp2Hh2edrlTSA',{
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://www.mapbox.com/">OpenStreetMap</a>'
+        }).addTo(map3);
+
+         cartodb.createLayer(map3, 'https://savi.carto.com/u/orifisher/api/v2/viz/c2ccbf84-8bb3-11e6-91ce-0e3a376473ab/viz.json', { legends: false })
+         .addTo(map3)
+
+        map1.on('moveend', function(e) {
+          changeMapState(map1, map2);
+          changeMapState(map1, map3);
+
+        });
+        map2.on('moveend', function(e) {
+          changeMapState(map2, map1);
+          changeMapState(map2, map3);
+        });
+
+         map3.on('moveend', function(e) {
+          changeMapState(map3, map1);
+          changeMapState(map3, map2);
+        });
+
+
+
+
+      //Applies the same view from src to tgt map
+      function changeMapState(src,tgt){
+        tgt.setZoom(src.getZoom());
+        tgt.panTo(src.getCenter());
+      }
+
+    </script>
+
+ <p> </p>
+ NYC building use data source: <a href="https://www1.nyc.gov/site/planning/data-maps/open-data.page" target="_blank">PLUTO</a> 
+ <p> <a href="http://www.slate.com/blogs/the_vault/2014/01/23/new_york_city_manufacturing_map_of_past_industry.html" target="_blank">1922 industry map source</a> </p>
+ <p> Cartojs tamplet: <a href="http://bl.ocks.org/iriberri" target="_blank">Carla’s Blocks</a> </p>
+ <p><a href="../../index.html">Back to my portfolio page</a></p>
+
+  </body>
+  </html>
+

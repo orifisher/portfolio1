@@ -1,0 +1,47 @@
+body {
+    width: 75%;
+    background-color: #f4f4f4;
+    font-family: sans-serif;
+    margin: auto; 
+    
+}
+
+.map {
+    position: absolute;
+    left: 200px;
+    width: 550px;
+    height: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+
+}
+
+
+h1, h2, h3, h4, p {
+	color: #14393d;
+}
+
+p {
+	font-size: 17px;
+    line-height: 21px;
+}
+
+li {
+	display: inline;
+	padding-right: 30px;
+}
+
+ul a {
+	color: #276056;
+	text-decoration: none;
+}
+
+ul a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+ul {
+	text-align: center;
+}
